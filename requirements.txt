@@ -1,0 +1,9 @@
+streamlit
+torch
+librosa
+matplotlib
+pyaudio
+sounddevice
+transformers
+openai-whisper
+scipy
