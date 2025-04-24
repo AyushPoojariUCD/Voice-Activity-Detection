@@ -2,9 +2,11 @@
 
 This Streamlit application performs **Voice Activity Detection** and **Speech-to-Text transcription** using:
 
-- 🧠 OpenAI's Whisper
-- 🧠 Facebook's Wav2Vec2
-- 📈 Energy-based VAD with visualizations
+- WebRTC Voice Activity Detection
+- Silero Voice Activity Detection
+- Entropy based Voice Acitvity Detection
+- Energy based Voice Activity Detection
+- ZCR based Voice Activity Detection
 
 Supports both **WAV file uploads** and **real-time microphone input**.
 
