@@ -117,24 +117,8 @@ if 'data' in locals() and data is not None:
     for i, (s, e) in enumerate(segments):
         st.markdown(f"**Segment {i+1}:** {s:.2f}s - {e:.2f}s")
 
-    # === Whisper Transcription ===
-    st.subheader("📌 OpenAI Whisper VAD")
-    try:
-        whisper_model = load_whisper_model()
-        audio_16k = librosa.resample(data, orig_sr=rate, target_sr=16000).astype(np.float32)
-        with st.spinner("Transcribing with Whisper..."):
-            result = whisper_model.transcribe(audio_16k)
-        st.markdown(f"**Full Text:** {result['text']}")
-        if 'segments' in result:
-            st.subheader("Voice Segments Detected")
-            for seg in result['segments']:
-                st.markdown(f"**{seg['start']:.2f}s - {seg['end']:.2f}s**: {seg['text'].strip()}")
-    except Exception as e:
-        st.error("Failed to transcribe using Whisper.")
-        st.code(str(e))
-
     # === Wav2Vec2 Transcription ===
-    st.subheader("📌 Wav2Vec2 VAD")
+    st.subheader("📌 Wav2Vec2 Voice Activity Detection")
     try:
         processor, wav2vec_model = load_wav2vec2_model()
         wav2vec_model.eval()
