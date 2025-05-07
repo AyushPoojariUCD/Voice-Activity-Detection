@@ -7,5 +7,4 @@ sounddevice
 transformers
 openai-whisper
 scipy
-webrtcvad
 silero-vad
